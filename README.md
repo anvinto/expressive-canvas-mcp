@@ -9,15 +9,15 @@ makes it morph (blob, cat, amoeba, face, bird, robot, or a body it invents), ske
 lay out diagrams and talk. The server holds no model and needs no API key: the model is your
 client's. It runs on your own machine and listens on 127.0.0.1 only.
 
-This is a beta (0.x): things may change between minor versions. The package carries its `CHANGELOG.md`.
+This is a beta (0.x): things may change between minor versions. See `CHANGELOG.md` in the package.
 
 ## See it
 
-![A cat draws the loop an agent runs and explains each step](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.1/agentic-workflow.gif)
+![A cat draws the loop an agent runs and explains each step](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.2/agentic-workflow.gif)
 
 **A cat explains how an agent works:** goal, plan, act, observe, check, then repeat or finish.
 
-![A blob draws the OAuth authorization code flow with PKCE as a sequence diagram](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.1/oauth-sequence.gif)
+![A blob draws the OAuth authorization code flow with PKCE as a sequence diagram](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.2/oauth-sequence.gif)
 
 **A blob explains OAuth 2.0 with PKCE:** four lifelines and seven numbered messages, one spoken line
 each.
@@ -28,7 +28,7 @@ model session.
 ## Requirements
 
 - Node.js 22 or newer
-- A browser (the canvas is a page the server opens at `http://127.0.0.1:8787`)
+- A browser (the canvas is a page the server opens at `http://127.0.0.1:18787`)
 - An MCP client: Claude Code, Claude Desktop, Cursor, VS Code or Codex
 
 ## Install
@@ -36,24 +36,84 @@ model session.
 Claude Code and Claude Desktop are set up by one command each:
 
 ```bash
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1 install claude-code
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1 install claude-desktop
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install claude-code
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install claude-desktop
 ```
 
 Restart Claude Desktop after its command. For the other clients, `install` prints the entry to
 paste and says which file it goes in:
 
 ```bash
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1 install cursor --print
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1 install vscode --print
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1 install codex --print
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install cursor --print
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install vscode --print
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install codex --print
 ```
 
-To register it by hand in any client that starts MCP servers over stdio, the command is `npx` and
-the arguments are `-y`, `@anvinto/expressive-canvas-mcp@0.2.0-beta.1`, `stdio`. In Claude Code:
+To register it by hand in Claude Code:
 
 ```bash
-claude mcp add --transport stdio --scope user expressive-canvas -- npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1 stdio
+claude mcp add --transport stdio --scope user expressive-canvas -- npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 stdio
+```
+
+### Any other MCP client
+
+Any tool that starts MCP servers over stdio can use the canvas. Most of them (Cursor, Windsurf,
+Cline, Claude Desktop and others) read a JSON file with an `mcpServers` key. Add this entry to it:
+
+```json
+{
+  "mcpServers": {
+    "expressive-canvas": {
+      "command": "npx",
+      "args": ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.2", "stdio"]
+    }
+  }
+}
+```
+
+Where the file is and what its top key is called differ between clients, so check your client's MCP
+documentation. Two that differ:
+
+VS Code (`.vscode/mcp.json`) calls the key `servers` and wants a `type`:
+
+```json
+{
+  "servers": {
+    "expressive-canvas": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.2", "stdio"]
+    }
+  }
+}
+```
+
+Codex (`~/.codex/config.toml`) uses TOML, and needs longer timeouts because a drawing can run for
+minutes:
+
+```toml
+[mcp_servers.expressive-canvas]
+command = "npx"
+args = ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.2", "stdio"]
+startup_timeout_sec = 60
+tool_timeout_sec = 180
+```
+
+If the client cannot find `npx` (some desktop apps start servers with a short `PATH`), give the
+full path that `which npx` prints as the `command`.
+
+A client that connects to a URL instead of starting a command can use the server you run yourself.
+Start it with `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 start`, keep it running, and give
+the client this entry (Streamable HTTP, this machine only):
+
+```json
+{
+  "mcpServers": {
+    "expressive-canvas": {
+      "url": "http://127.0.0.1:18787/mcp"
+    }
+  }
+}
 ```
 
 Then start a new session in your client and ask, for example:
@@ -62,9 +122,15 @@ Then start a new session in your client and ask, for example:
 
 The first call opens the canvas in your browser and the drawing starts there.
 
+To choose who presents, say so: "use a red angry bird to explain how an option chain works". To
+make it your default, add a line such as "On the canvas, always present as a red angry bird" to
+your client's own instructions. To talk to your assistant from the canvas page itself, start the
+`present` prompt the server offers: it answers on the board and waits there for your next note or
+click until you write "done".
+
 ## Commands
 
-Put `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1` in front of each.
+Put `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2` in front of each.
 
 | Command | What it does |
 |---|---|
@@ -89,10 +155,10 @@ npx -y @anvinto/expressive-canvas-mcp@<new version> install claude-code --yes
 
 ## Problems
 
-Run `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1 doctor` first: it names what is wrong and the fix.
+Run `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 doctor` first: it names what is wrong and the fix.
 If that does not settle it, open an issue at
 <https://github.com/anvinto/expressive-canvas-mcp/issues> and attach the file that
-`npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.1 report` writes. It holds versions, the doctor
+`npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 report` writes. It holds versions, the doctor
 checks and the end of the log, and no secrets.
 
 ## Licence
