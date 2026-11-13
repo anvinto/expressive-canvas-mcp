@@ -1,0 +1,34 @@
+name: Problem report
+description: Something does not work as the README says
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Run `npx -y @anvinto/expressive-canvas-mcp@<your version> doctor` first: it names most problems and their fix.
+        Do not paste API keys, tokens or private drawings.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: 0.2.0-beta.1
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: MCP client and operating system
+      placeholder: Claude Code on macOS 15
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Report file
+      description: Attach or paste the file that the `report` command writes. It holds versions, the doctor checks and the end of the log, and no secrets.

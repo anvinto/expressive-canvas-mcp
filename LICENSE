@@ -1,0 +1,137 @@
+EXPRESSIVE CANVAS MCP
+END USER LICENCE AGREEMENT
+
+Copyright (c) 2026 Anvinto FZ-LLC. All rights reserved.
+
+This agreement is between you and Anvinto FZ-LLC, a free zone company
+registered in the Emirate of Ras Al Khaimah, United Arab Emirates
+("Anvinto"). It covers the package "@anvinto/expressive-canvas-mcp" as
+published by Anvinto on the npm registry, and any update to it that Anvinto
+publishes there (the "Software").
+
+By installing or running the Software you accept this agreement. If you do
+not accept it, do not install or run the Software. If you accept it for an
+organisation, you confirm that you may bind that organisation, and "you"
+means that organisation.
+
+1. Licence
+
+   1.1 The Software is licensed, not sold.
+
+   1.2 While you keep to this agreement, Anvinto grants you a non-exclusive,
+       non-transferable, revocable licence, free of charge, to install and
+       run unmodified copies of the Software for your personal use and for
+       the internal business use of your organisation.
+
+   1.3 You may make the copies that installing, running and backing up the
+       Software need.
+
+2. Restrictions
+
+   Except where a law that applies to you gives you a right that an agreement
+   cannot take away, you must not:
+
+   (a) distribute, publish, sublicense, sell, rent, lease or lend the
+       Software, or offer it to others as a hosted or managed service;
+   (b) modify, adapt or translate the Software, or make works derived from it;
+   (c) reverse engineer, decompile or disassemble the Software, or try in any
+       other way to obtain its source code;
+   (d) remove, hide or change any copyright, licence, trade mark or
+       attribution notice in the Software;
+   (e) use the Software in breach of any law that applies to you.
+
+3. Third-party software
+
+   The Software includes third-party software. Each such component is under
+   its own licence, set out in the file THIRD-PARTY-NOTICES. That licence, not
+   this agreement, governs your use of that component.
+
+4. Ownership
+
+   Anvinto and its licensors own the Software and all intellectual property
+   rights in it. This agreement gives you no right to Anvinto's names, logos
+   or trade marks. Anvinto keeps every right that this agreement does not
+   expressly grant.
+
+5. Feedback
+
+   If you send Anvinto suggestions or reports about the Software, Anvinto may
+   use them without restriction and without owing you anything.
+
+6. Updates and support
+
+   Anvinto may change, replace or withdraw the Software at any time. Anvinto
+   has no duty to provide updates, maintenance or support.
+
+7. Your data
+
+   The Software runs on your own computer. Anvinto does not receive the
+   content you create with it. You are responsible for your content and for
+   any third-party service you connect the Software to.
+
+8. No warranty
+
+   TO THE FULLEST EXTENT THE LAW ALLOWS, THE SOFTWARE IS PROVIDED "AS IS" AND
+   "AS AVAILABLE", WITHOUT WARRANTY OR CONDITION OF ANY KIND, EXPRESS, IMPLIED
+   OR STATUTORY, INCLUDING ANY WARRANTY OF MERCHANTABILITY, SATISFACTORY
+   QUALITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE OR NON-INFRINGEMENT.
+
+9. Limit of liability
+
+   9.1 TO THE FULLEST EXTENT THE LAW ALLOWS, ANVINTO AND ITS LICENSORS ARE NOT
+       LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL LOSS, OR
+       FOR ANY LOSS OF PROFIT, REVENUE, DATA, GOODWILL OR BUSINESS, ARISING
+       FROM OR CONNECTED WITH THE SOFTWARE OR THIS AGREEMENT, WHETHER IN
+       CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE.
+
+   9.2 THE SOFTWARE IS PROVIDED FREE OF CHARGE. ANVINTO'S TOTAL LIABILITY
+       ARISING FROM OR CONNECTED WITH THE SOFTWARE OR THIS AGREEMENT IS
+       LIMITED TO ONE HUNDRED UNITED ARAB EMIRATES DIRHAMS (AED 100).
+
+   9.3 Nothing in this agreement limits or excludes a liability that the
+       applicable law does not allow to be limited or excluded.
+
+10. Term and ending
+
+   10.1 This agreement lasts until it ends under this clause.
+
+   10.2 It ends automatically, without notice, if you breach it. You may end
+        it at any time by deleting every copy of the Software you hold.
+
+   10.3 When it ends you must stop using the Software and delete every copy
+        of it. Clauses 2, 4, 5, 8, 9, 11 and 12 continue after it ends.
+
+11. Governing law and courts
+
+   11.1 This agreement, and any dispute or claim arising from or connected
+        with it or the Software, is governed by the federal laws of the
+        United Arab Emirates and the laws of the Emirate of Ras Al Khaimah,
+        without regard to rules on conflict of laws.
+
+   11.2 The courts of the Emirate of Ras Al Khaimah have exclusive
+        jurisdiction over any such dispute or claim. Anvinto may nevertheless
+        seek urgent or protective measures for its intellectual property
+        rights before any court that has jurisdiction.
+
+12. General
+
+   12.1 This agreement is the whole agreement between you and Anvinto about
+        the Software and replaces any earlier statement about it.
+
+   12.2 If a court finds part of this agreement unenforceable, that part
+        applies to the furthest extent the law allows and the rest stays in
+        force.
+
+   12.3 A failure or delay by Anvinto in enforcing a right is not a waiver of
+        that right.
+
+   12.4 You may not transfer this agreement or your rights under it. Anvinto
+        may transfer it to a successor or to a buyer of the Software.
+
+   12.5 You must comply with the export control and sanctions laws that apply
+        to your use of the Software.
+
+   12.6 This agreement is written in English. If it is translated, the
+        English text prevails to the extent the law allows.
+
+Anvinto FZ-LLC, Ras Al Khaimah, United Arab Emirates
