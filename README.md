@@ -11,6 +11,20 @@ client's. It runs on your own machine and listens on 127.0.0.1 only.
 
 This is a beta (0.x): things may change between minor versions. The package carries its `CHANGELOG.md`.
 
+## See it
+
+![A cat draws the loop an agent runs and explains each step](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.1/agentic-workflow.gif)
+
+**A cat explains how an agent works:** goal, plan, act, observe, check, then repeat or finish.
+
+![A blob draws the OAuth authorization code flow with PKCE as a sequence diagram](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.1/oauth-sequence.gif)
+
+**A blob explains OAuth 2.0 with PKCE:** four lifelines and seven numbered messages, one spoken line
+each.
+
+Both are scripted: fixed commands replayed through the server's own tools, not a recording of a live
+model session.
+
 ## Requirements
 
 - Node.js 22 or newer
