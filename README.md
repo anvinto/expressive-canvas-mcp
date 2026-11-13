@@ -1,5 +1,8 @@
 # Expressive Canvas MCP
 
+[![npm version](https://img.shields.io/npm/v/%40anvinto%2Fexpressive-canvas-mcp)](https://www.npmjs.com/package/@anvinto/expressive-canvas-mcp)
+[![Node.js version](https://img.shields.io/node/v/%40anvinto%2Fexpressive-canvas-mcp)](https://nodejs.org)
+
 > This repository holds the documentation, the licence and the issue tracker for the npm package
 > [`@anvinto/expressive-canvas-mcp`](https://www.npmjs.com/package/@anvinto/expressive-canvas-mcp).
 > The source code is not published here.
