@@ -16,11 +16,11 @@ This is a beta (0.x): things may change between minor versions. See `CHANGELOG.m
 
 ## See it
 
-![A cat draws the loop an agent runs and explains each step](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.2/agentic-workflow.gif)
+![A cat draws the loop an agent runs and explains each step](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.3/agentic-workflow.gif)
 
 **A cat explains how an agent works:** goal, plan, act, observe, check, then repeat or finish.
 
-![A blob draws the OAuth authorization code flow with PKCE as a sequence diagram](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.2/oauth-sequence.gif)
+![A blob draws the OAuth authorization code flow with PKCE as a sequence diagram](https://media.anvinto.com/expressive-canvas-mcp/0.2.0-beta.3/oauth-sequence.gif)
 
 **A blob explains OAuth 2.0 with PKCE:** four lifelines and seven numbered messages, one spoken line
 each.
@@ -39,23 +39,23 @@ model session.
 Claude Code and Claude Desktop are set up by one command each:
 
 ```bash
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install claude-code
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install claude-desktop
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 install claude-code
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 install claude-desktop
 ```
 
 Restart Claude Desktop after its command. For the other clients, `install` prints the entry to
 paste and says which file it goes in:
 
 ```bash
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install cursor --print
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install vscode --print
-npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 install codex --print
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 install cursor --print
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 install vscode --print
+npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 install codex --print
 ```
 
 To register it by hand in Claude Code:
 
 ```bash
-claude mcp add --transport stdio --scope user expressive-canvas -- npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 stdio
+claude mcp add --transport stdio --scope user expressive-canvas -- npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 stdio
 ```
 
 ### Any other MCP client
@@ -68,7 +68,7 @@ Cline, Claude Desktop and others) read a JSON file with an `mcpServers` key. Add
   "mcpServers": {
     "expressive-canvas": {
       "command": "npx",
-      "args": ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.2", "stdio"]
+      "args": ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.3", "stdio"]
     }
   }
 }
@@ -85,7 +85,7 @@ VS Code (`.vscode/mcp.json`) calls the key `servers` and wants a `type`:
     "expressive-canvas": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.2", "stdio"]
+      "args": ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.3", "stdio"]
     }
   }
 }
@@ -97,7 +97,7 @@ minutes:
 ```toml
 [mcp_servers.expressive-canvas]
 command = "npx"
-args = ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.2", "stdio"]
+args = ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.3", "stdio"]
 startup_timeout_sec = 60
 tool_timeout_sec = 180
 ```
@@ -106,7 +106,7 @@ If the client cannot find `npx` (some desktop apps start servers with a short `P
 full path that `which npx` prints as the `command`.
 
 A client that connects to a URL instead of starting a command can use the server you run yourself.
-Start it with `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 start`, keep it running, and give
+Start it with `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 start`, keep it running, and give
 the client this entry (Streamable HTTP, this machine only):
 
 ```json
@@ -131,9 +131,29 @@ your client's own instructions. To talk to your assistant from the canvas page i
 `present` prompt the server offers: it answers on the board and waits there for your next note or
 click until you write "done".
 
+To have it stay on the canvas every time, without the prompt, add one setting to the entry's `env`
+and restart your client:
+
+```json
+{
+  "mcpServers": {
+    "expressive-canvas": {
+      "command": "npx",
+      "args": ["-y", "@anvinto/expressive-canvas-mcp@0.2.0-beta.3", "stdio"],
+      "env": { "MCP_STAY_ON_CANVAS": "on" }
+    }
+  }
+}
+```
+
+After each drawing the assistant then waits on the canvas for your next note or click, answers
+there and waits again. It stops when you ask it to, or after 10 waits in a row with nothing from
+you. It is off by default: with it on, an assistant you asked from the chat window waits on the
+canvas instead of returning to you.
+
 ## Commands
 
-Put `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2` in front of each.
+Put `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3` in front of each.
 
 | Command | What it does |
 |---|---|
@@ -158,10 +178,10 @@ npx -y @anvinto/expressive-canvas-mcp@<new version> install claude-code --yes
 
 ## Problems
 
-Run `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 doctor` first: it names what is wrong and the fix.
+Run `npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 doctor` first: it names what is wrong and the fix.
 If that does not settle it, open an issue at
 <https://github.com/anvinto/expressive-canvas-mcp/issues> and attach the file that
-`npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.2 report` writes. It holds versions, the doctor
+`npx -y @anvinto/expressive-canvas-mcp@0.2.0-beta.3 report` writes. It holds versions, the doctor
 checks and the end of the log, and no secrets.
 
 ## Licence
